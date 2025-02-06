@@ -20,13 +20,14 @@ class CollectionDetailController extends GetxController {
 
   PageController pageController = PageController();
 
-  Future<bool> addNewRepair({
+  Future<bool> addNewRepair(BuildContext context,{
     required String location,
     required List machines,
   })
   async {
     loader.value = true;
     addNewCollectionModel =  await CustomerNewCollectionApi.customerNewCollectionApi(
+      context,
       location: location,
       machines: machines,
     );

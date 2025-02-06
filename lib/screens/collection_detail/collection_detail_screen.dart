@@ -50,7 +50,7 @@ class CollectionDetailScreen extends StatelessWidget {
                      const SizedBox(width: 20),
                      GestureDetector(
                          onTap: () async {
-List images =[];
+                           List images =[];
                            //
                            // List flist =newCollectionController.addCampaignData;
                            //
@@ -97,7 +97,7 @@ List images =[];
                    itemBuilder: (context,i){
                  return  Column(
                    children: [
-           
+
                      Padding(
                        padding: const EdgeInsets.all(20),
                        child: Column(
@@ -174,14 +174,14 @@ List images =[];
                                  Row(
                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                    children: [
-                                     SizedBox(
-                                       width:Get.width*0.15,
-                                       child: Text(
-                                         '#${newCollectionController.addCampaignData[i].machineNumber}-${newCollectionController.addCampaignData[i].serialNumber}',
-                                         overflow: TextOverflow.ellipsis,
-                                         style: subTitle().copyWith(fontSize: 14, color: ColorRes.grey2),
-                                       ),
-                                     ),
+                                     // SizedBox(
+                                     //   width:Get.width*0.15,
+                                     //   child: Text(
+                                     //     '#${newCollectionController.addCampaignData[i].machineNumber}-${newCollectionController.addCampaignData[i].serialNumber}',
+                                     //     overflow: TextOverflow.ellipsis,
+                                     //     style: subTitle().copyWith(fontSize: 14, color: ColorRes.grey2),
+                                     //   ),
+                                     // ),
                                      // SizedBox(
                                      //   width: Get.width * 0.1,
                                      // ),
@@ -203,10 +203,9 @@ List images =[];
                                        StringRes.total,
                                        style: subTitle().copyWith(fontSize: 14, color: ColorRes.grey2),
                                      ),
-           
+
                                    ],
                                  ),
-           
                                  const SizedBox(height: 10,),
                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
                                    Text(
@@ -222,8 +221,10 @@ List images =[];
                                      style: title().copyWith(fontSize: 15, fontWeight: FontWeight.w400),
                                    ),
                                    Text(
-                                     "\$${controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent ??"0"),
-                                         int.parse(newCollectionController.addCampaignData[i].inPrevious ?? '0'))}",
+                                     "\$${controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent ?? "0"),
+                                         int.parse(newCollectionController.addCampaignData[i].inPrevious == "" ? "0" :newCollectionController.addCampaignData[i].inPrevious ?? '0'))}",
+                                     // "\$${controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent ??"0"),
+                                     //     int.parse(newCollectionController.addCampaignData[i].inPrevious ?? '0'))}",
                                      style: title().copyWith(fontSize: 15, fontWeight: FontWeight.w400),
                                    ),
                                  ],),
@@ -242,8 +243,8 @@ List images =[];
                                      style: title().copyWith(fontSize: 15, fontWeight: FontWeight.w400),
                                    ),
                                    Text(
-                                     "\$${controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].outCurrent ?? '0'),
-                                         int.parse(newCollectionController.addCampaignData[i].outPrevious ??'0'))}",
+                                     "\$${controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].outCurrent == ""? "0" :newCollectionController.addCampaignData[i].outCurrent ?? '0'),
+                                         int.parse(newCollectionController.addCampaignData[i].outPrevious == ""? "0" :newCollectionController.addCampaignData[i].outPrevious ??'0'))}",
                                      style: title().copyWith(fontSize: 15, fontWeight: FontWeight.w400),
                                    ),
                                  ],),
@@ -256,19 +257,19 @@ List images =[];
                                        mainAxisAlignment: MainAxisAlignment.end,
                                        crossAxisAlignment: CrossAxisAlignment.end,
                                        children: [
-                                         Text('Profit: ', style: title().copyWith(fontSize: 15, fontWeight: FontWeight.w500)),
+                                        Text('Profit: ', style: title().copyWith(fontSize: 15, fontWeight: FontWeight.w500)),
                                          Text(
                                            "\$ ${controller.calculateTotalValue(
-                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent ??'0'),
-                                                   int.parse(newCollectionController.addCampaignData[i].inPrevious ??'0')),
-                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].outCurrent ??'0'),
-                                                   int.parse(newCollectionController.addCampaignData[i].outPrevious ??'0'))
+                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent == ""? "0" :newCollectionController.addCampaignData[i].inCurrent ??'0'),
+                                                   int.parse(newCollectionController.addCampaignData[i].inPrevious == "" ? "0" :newCollectionController.addCampaignData[i].inPrevious ??'0')),
+                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].outCurrent == ""? "0" :newCollectionController.addCampaignData[i].outCurrent ??'0'),
+                                                   int.parse(newCollectionController.addCampaignData[i].outPrevious == "" ? "0" :newCollectionController.addCampaignData[i].outPrevious ??'0'))
                                            )}",
                                            style: TextStyle(color:  (controller.calculateTotalValue(
-                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent ??'0'),
-                                                   int.parse(newCollectionController.addCampaignData[i].inPrevious ??'0')),
-                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].outCurrent ??'0'),
-                                                   int.parse(newCollectionController.addCampaignData[i].outPrevious ??'0'))
+                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].inCurrent == "" ? "0" :newCollectionController.addCampaignData[i].inCurrent ??'0'),
+                                                   int.parse(newCollectionController.addCampaignData[i].inPrevious == "" ? "0" :newCollectionController.addCampaignData[i].inPrevious ??'0')),
+                                               controller.calculateSubtractedValue(int.parse(newCollectionController.addCampaignData[i].outCurrent == "" ? "0" :newCollectionController.addCampaignData[i].outCurrent ??'0'),
+                                                   int.parse(newCollectionController.addCampaignData[i].outPrevious == "" ? "0" :newCollectionController.addCampaignData[i].outPrevious ??'0'))
                                            ) < 0)
                                                ? ColorRes.red
                                                : ColorRes.green,),
@@ -346,7 +347,7 @@ List images =[];
 
 
             controller.addNewRepair(
-
+              context,
                 location: newCollectionController.locationId,
               machines:machines
           ).then((value) {

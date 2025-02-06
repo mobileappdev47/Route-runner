@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:route_runner/api_call/add_new_collection_api/add_new_collection_model.dart';
 import 'package:route_runner/screens/collection_report/collection_report_controller.dart';
@@ -8,7 +9,7 @@ import 'package:route_runner/utils/end_points.dart';
 import 'package:route_runner/utils/pref_keys.dart';
 CollectionReportController controller = Get.put(CollectionReportController());
 class CustomerNewCollectionApi {
-  static Future<AddNewCollectionModel> customerNewCollectionApi({
+  static Future<AddNewCollectionModel> customerNewCollectionApi(BuildContext context,{
     required String location,
     required List machines
   }) async {
@@ -41,8 +42,9 @@ class CustomerNewCollectionApi {
 
           controller.getLocation();
 
-          Get.back();
-          Get.back();
+          Navigator.pop(context,true);
+          Navigator.pop(context,true);
+
           // Get.to(() => CollectionReportScreen());
           return addNewCollectionModelFromJson(response.body);
         }

@@ -887,8 +887,9 @@ class NewCollectionScreen extends StatelessWidget {
                                             }
 
                                             if (controller.machineData.isNotEmpty) {
-                                              if (controller.pageIndex ==
-                                                  controller.machineData[0].machines!.length - 1) {
+                                              int length = controller.machineData[0].machines!.length - 1 ;
+                                              print(length);
+                                              if (controller.pageIndex == length) {
                                                 Get.to(() => CollectionDetailScreen());
                                               } else {
                                                 controller.pageController.nextPage(duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);

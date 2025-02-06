@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
             SingleChildScrollView(
               child: GetBuilder<HomeController>(
                   id: 'home',
-                  builder: (context) {
+                  builder: (context2) {
                     return Column(
                       children: [
                         Stack(
@@ -212,7 +212,13 @@ class HomeScreen extends StatelessWidget {
 
 
 
-                                    Get.to(()=> const NewCollectionScreen());
+                                   bool refresh = await Navigator.push( context, MaterialPageRoute(builder: (context) => const NewCollectionScreen(),));
+
+                                    if(refresh == true){
+                                      context2.init();
+                                      context2.update(['home']);
+                                      homeController.update(['home']);
+                                    }
                                     }),
                               )
                               /* Row(

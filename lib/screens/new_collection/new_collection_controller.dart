@@ -324,7 +324,7 @@ if(machineData.isNotEmpty && machineData[0].machines!.isNotEmpty) {
   List totalError = [];
   List imageError =[];
 
-  bool isClick = false;
+  bool isClick = true;
   bool isClickMachine = false;
   bool isClickSerial= false;
 

@@ -84,6 +84,7 @@ class HomeController extends GetxController {
 
   getRecentCollection() async {
     loader.value = true;
+    recentCollectionList.clear();
 
     // Assuming CustomerGetRecentCollectionApi.customerGetRecentCollectionApi()
     // returns an instance of GerRecentCollectionModel.
